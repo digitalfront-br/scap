@@ -10,6 +10,7 @@ import { ForgotPasswordPageComponent } from './pages/guest/forgot-password-page/
 import { HomePageComponent } from './pages/auth/home-page/home-page.component';
 import { GuardLayoutComponent } from './pages/auth/guard-layout.component';
 import { GuestLayoutComponent } from './pages/guest/guest-layout.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { GuestLayoutComponent } from './pages/guest/guest-layout.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

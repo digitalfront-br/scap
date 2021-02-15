@@ -1,17 +1,27 @@
 <div class="uk-card uk-card-body uk-flex uk-flex-column uk-text-center uk-flex-around uk-height-viewport">
     <div>
-        <form action="" method="post">
+        
+        <form #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
             <div class="uk-margin">
                 <img src="https://placehold.it/100x70" alt="" srcset="">
             </div>
-            <div class="uk-margin">
-                <input class="uk-input uk-border-rounded" placeholder="Email" type="email" required>
+            <div *ngIf="messages != null; index as i;" class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <ng-container *ngIf="messages.email">
+                    <span *ngFor="let msg of messages.email">{{ msg }}</span> <br>
+                </ng-container>
+                <ng-container *ngIf="messages.password">
+                    <span *ngFor="let msg of messages.password">{{ msg }}</span><br>
+                </ng-container>
             </div>
             <div class="uk-margin">
-                <input class="uk-input uk-border-rounded" placeholder="Password" type="password" min="6" required>
+                <input ngModel name="email" class="uk-input uk-border-rounded" placeholder="Email" type="email" required>
             </div>
             <div class="uk-margin">
-                <button class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" type="submit">Entrar</button>
+                <input ngModel name="password" class="uk-input uk-border-rounded" placeholder="Password" type="password" min="6" required>
+            </div>
+            <div class="uk-margin">
+                <button type="submit" [disabled]="disableBtn" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" >Entrar</button>
             </div>
         </form>
         <div class="uk-margin">

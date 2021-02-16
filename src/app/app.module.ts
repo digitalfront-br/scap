@@ -11,6 +11,7 @@ import { HomePageComponent } from './pages/auth/home-page/home-page.component';
 import { GuardLayoutComponent } from './pages/auth/guard-layout.component';
 import { GuestLayoutComponent } from './pages/guest/guest-layout.component';
 import { FormsModule } from '@angular/forms';
+import { CardListComponent } from './components/card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     ForgotPasswordPageComponent,
     HomePageComponent,
     GuardLayoutComponent,
-    GuestLayoutComponent
+    GuestLayoutComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,

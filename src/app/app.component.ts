@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import * as Feather from 'feather-icons';
 
 @Component({
   selector: 'df-root',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class AppComponent {
-  title = 'scap';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    Feather.replace();
+  }
 }

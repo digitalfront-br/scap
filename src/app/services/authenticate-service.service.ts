@@ -16,14 +16,9 @@ export class AuthenticateService {
     return this.http.post(this.url+'login', body, {headers: this.headers});
   }
   postCreateAccount(body) {
-    return this.http.post(this.url+'create-account', body).subscribe(
-      success => console.log('success', success),
-      error => console.error(error),
-      () => console.warn('completo')
-      
-    );
+    return this.http.post(this.url+'create-account', body,  {headers: this.headers});
   }
   postForgotPassword(body) {
-    return this.http.post(this.url+'forgot-password', body).subscribe(res => { console.log(res)});
+    return this.http.post(this.url+'forgot-password', body,  {headers: this.headers});
   }
 }

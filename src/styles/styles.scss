@@ -1,8 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'variables';
-@import 'mixins';
-@import 'custom';
-/* UIKit */
-@import "variables-theme.scss";
-@import "mixins-theme.scss";
-@import "uikit-theme.scss";
+// 1. Your custom variables and variable overwrites.
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&family=Poppins:wght@200;300;400;700;900&display=swap');
+$global-font-family: 'Poppins', sans-serif;
+$global-danger-background: #008a17;
+$global-danger-background: #f44;
+$global-primary-background: #00bcd4;
+$global-link-color: $global-primary-background;
+
+// 2. Import default variables and available mixins.
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-navbar-item() { 
+  min-height: 60px;
+}
+@mixin hook-card-default() { 
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0.5rem 0.750rem;
+  border-top: 1px solid rgba(37, 67, 90, 0.09);
+  // box-shadow: 1px 2px 3px rgba(37, 67, 90, 0.09);
+}
+@mixin hook-overlay-primary() {
+  background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.2) 25%, #00bcd4 90%);
+}
+@mixin hook-card-header() {
+  padding: 0;
+};
+
+// 4. Import UIkit.
+@import "uikit/src/scss/uikit-theme.scss";
+
+html {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.uk-notification-message{
+  @include hook-card-default();
+  border-radius: 3px ;
+  box-shadow: 1px 2px 3px rgba(37, 67, 90, 0.09);
+} 
+.uk-notification-message-danger {
+  background-color: $global-danger-background;
+  color: #fff;
+}
+.uk-notification-message-success {
+  background-color: $global-success-background;
+  color: #fff;
+}
+.uk-card-basic {
+  @include hook-card-default();
+  // border-radius: 3px ;
+}
+.uk-card-list {
+  @include hook-card-default();
+  // border-radius: 3px ;
+}
+.card-menu {
+  @include hook-card-default();
+  border-top: none !important;
+  padding:1rem 0.50rem;
+}
+.cloud {
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgb(255, 255, 255) 90%);
+}
+.left {
+  left: 0;
+  padding:5px 20px;
+  width: 100vw !important;
+}
+.banner-section{
+  height: calc(100vh / 3);
+  overflow: hidden;
+//   background: rgb(255,255,255);
+// background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,188,212,1) 90%);
+}
+
+:focus {
+    outline: none;
+    opacity: 0.7;
+    color: $global-primary-background;
+}

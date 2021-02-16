@@ -1,3 +1,4 @@
+import { QuestionService } from './../../../services/question.service';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -9,24 +10,34 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(public http: CategoryService) { }
+  constructor(public httpCategory: CategoryService, public httpQuestion: QuestionService) { }
 
   ngOnInit(): void {
     this.loadCategories();
+    this.loadQuestions();
   }
 
   public categories;
+  public questions;
 
   loadCategories() {
-    return this.http.getCategories().subscribe(
+    return this.httpCategory.getCategories(5).subscribe(
       success => {
-        this.categories = success;
-        console.log(this.categories);
+        this.categories = success
       },
       error => {
         console.log(error)
+      }
+    )
+  }
+  loadQuestions() {
+    return this.httpQuestion.getQuestions(20).subscribe(
+      success => {
+        this.questions = success
       },
-      () => console.warn('completo')
+      error => {
+        console.log(error)
+      }
     )
   }
 

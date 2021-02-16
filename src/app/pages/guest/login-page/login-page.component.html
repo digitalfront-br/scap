@@ -1,34 +1,37 @@
 <div class="uk-card uk-card-body uk-flex uk-flex-column uk-text-center uk-flex-around uk-height-viewport">
     <div>
-        
+
         <form #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
             <div class="uk-margin">
-                <img src="https://placehold.it/100x70" alt="" srcset="">
-            </div>
-            <div *ngIf="messages != null; index as i;" class="uk-alert-danger" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <ng-container *ngIf="messages.email">
-                    <span *ngFor="let msg of messages.email">{{ msg }}</span> <br>
-                </ng-container>
-                <ng-container *ngIf="messages.password">
-                    <span *ngFor="let msg of messages.password">{{ msg }}</span><br>
-                </ng-container>
+                <h1 class="uk-margin-remove uk-text-primary"><b>SC</b>A<span class="uk-text-light">P</span></h1>
             </div>
             <div class="uk-margin">
-                <input ngModel name="email" class="uk-input uk-border-rounded" placeholder="Email" type="email" required>
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                    <input ngModel name="email" class="uk-input uk-border-rounded" placeholder="Email" type="email"
+                        required>
+                </div>
             </div>
             <div class="uk-margin">
-                <input ngModel name="password" class="uk-input uk-border-rounded" placeholder="Password" type="password" min="6" required>
+                <div class="uk-inline  uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    <input ngModel name="password" class="uk-input uk-border-rounded" placeholder="Senha"
+                        type="password" min="6" required>
+                </div>
             </div>
             <div class="uk-margin">
-                <button type="submit" [disabled]="disableBtn" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" >Entrar</button>
+                <button type="submit" [disabled]="disableBtn"
+                    class="uk-button uk-button-primary uk-border-rounded uk-width-1-1">Entrar</button>
             </div>
         </form>
+        <hr>
         <div class="uk-margin">
-            <div class="uk-link" routerLink="forgot-password">Esqueci a senha</div>
+            <button class="uk-button uk-button-link uk-width-1-1 uk-border-rounded uk-link" [disabled]="disableBtn"
+                routerLink="/forgot-password">Esqueci a senha</button>
         </div>
-    </div>
-    <div class="uk-margin">
-        <div class="uk-button uk-button-default uk-width-1-1 uk-border-rounded" routerLink="create-account">Criar conta</div>
+        <div class="uk-margin">
+            <button class="uk-button uk-button-text uk-width-1-1 uk-border-rounded uk-link" [disabled]="disableBtn"
+                routerLink="/create-account">Criar conta</button>
+        </div>
     </div>
 </div>

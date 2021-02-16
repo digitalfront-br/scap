@@ -12,6 +12,13 @@ import { GuardLayoutComponent } from './pages/auth/guard-layout.component';
 import { GuestLayoutComponent } from './pages/guest/guest-layout.component';
 import { FormsModule } from '@angular/forms';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { CategoryPageComponent } from './pages/auth/category-page/category-page.component';
+import { QuestionPageComponent } from './pages/auth/question-page/question-page.component';
+import { MeetingPageComponent } from './pages/auth/meeting-page/meeting-page.component';
+import { CardGridComponent } from './components/card-grid/card-grid.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderLightComponent } from './components/header/header-light/header-light.component';
+import { HeaderDarkComponent } from './components/header/header-dark/header-dark.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { CardListComponent } from './components/card-list/card-list.component';
     HomePageComponent,
     GuardLayoutComponent,
     GuestLayoutComponent,
-    CardListComponent
+    CardListComponent,
+    CategoryPageComponent,
+    QuestionPageComponent,
+    MeetingPageComponent,
+    CardGridComponent,
+    FooterComponent,
+    HeaderLightComponent,
+    HeaderDarkComponent
   ],
   imports: [
     BrowserModule,

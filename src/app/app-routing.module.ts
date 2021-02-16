@@ -1,3 +1,6 @@
+import { MeetingPageComponent } from './pages/auth/meeting-page/meeting-page.component';
+import { QuestionPageComponent } from './pages/auth/question-page/question-page.component';
+import { CategoryPageComponent } from './pages/auth/category-page/category-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from './components/guard/authentication.guard';
@@ -13,7 +16,10 @@ const routes: Routes = [
     path: '',
     component: GuardLayoutComponent,
     children: [
-      { path: '', component: HomePageComponent}
+      { path: '', component: HomePageComponent},
+      { path: 'categories', component: CategoryPageComponent},
+      { path: 'questions', component: QuestionPageComponent},
+      { path: 'meetings', component: MeetingPageComponent}
     ],
     canActivate: [AuthenticationGuard]
   },

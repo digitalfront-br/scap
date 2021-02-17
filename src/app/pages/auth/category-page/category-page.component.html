@@ -1,2 +1,9 @@
-<df-header-light></df-header-light>
-<df-card-list [data]="categories"></df-card-list>
+<ng-container *ngIf="categories; else blockElse">
+  <df-header-light></df-header-light>
+  <df-card-list [data]="categories" prefixUrl="/categories"></df-card-list>
+</ng-container>
+<ng-template #blockElse>
+  <div class="uk-height-viewport uk-width-1-1 uk-flex uk-flex-middle uk-flex-center" #blockElse>
+    <div uk-spinner></div>
+  </div>
+</ng-template>

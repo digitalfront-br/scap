@@ -19,6 +19,7 @@ import { CardGridComponent } from './components/card-grid/card-grid.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderLightComponent } from './components/header/header-light/header-light.component';
 import { HeaderDarkComponent } from './components/header/header-dark/header-dark.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HeaderDarkComponent } from './components/header/header-dark/header-dark
     CardGridComponent,
     FooterComponent,
     HeaderLightComponent,
-    HeaderDarkComponent
+    HeaderDarkComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

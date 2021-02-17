@@ -10,6 +10,8 @@ export class CardGridComponent implements OnInit {
 
   @Input() data: Array<any>;
   @Input() linkMore: string;
+  @Input() prefixUrl: string;
+  
   constructor() { }
 
   ngOnInit(): void {

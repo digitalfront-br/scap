@@ -1,0 +1,27 @@
+<ng-container *ngIf="item; else blockElse">
+  <df-header-dark></df-header-dark>
+  <div>
+    <div class="uk-background-cover banner-section uk-panel uk-flex uk-flex-center uk-flex-middle"
+      style="background-image: url('{{item.img }}');">
+      <div class="uk-overlay-primary uk-position-cover"></div>
+      <div class="uk-overlay uk-position-bottom  uk-padding-remove">
+        <div class="uk-container">
+          <h3 class="uk-text-bold uk-margin-small-bottom">{{ item.title }}</h3>
+          <h4 *ngIf="item.count" class="uk-margin-small uk-margin-small-left uk-text-small uk-text-bold uk-text-muted">{{ item.count <= 1 ? (item.count + ' questionamento') : (item.count + ' questionamentos')  }} </h4>
+          <span *ngIf="item.description" class="uk-text-muted">{{ item.description }}</span>
+          <span *ngIf="item.category" class="uk-text-muted">{{ item.category }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="uk-container uk-margin-top">
+    <ng-container *ngIf="item.questions"> 
+      <df-card-list [data]="item.questions"  prefixUrl="/questions"></df-card-list>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-template #blockElse>
+  <div class="uk-height-viewport uk-width-1-1 uk-flex uk-flex-middle uk-flex-center" #blockElse>
+    <div uk-spinner></div>
+  </div>
+</ng-template>

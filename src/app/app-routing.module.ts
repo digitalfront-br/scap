@@ -1,3 +1,4 @@
+import { DetailComponent } from './components/detail/detail.component';
 import { MeetingPageComponent } from './pages/auth/meeting-page/meeting-page.component';
 import { QuestionPageComponent } from './pages/auth/question-page/question-page.component';
 import { CategoryPageComponent } from './pages/auth/category-page/category-page.component';
@@ -18,8 +19,11 @@ const routes: Routes = [
     children: [
       { path: '', component: HomePageComponent},
       { path: 'categories', component: CategoryPageComponent},
+      { path: 'categories/:id', component: DetailComponent},
       { path: 'questions', component: QuestionPageComponent},
-      { path: 'meetings', component: MeetingPageComponent}
+      { path: 'questions/:id', component: DetailComponent},
+      { path: 'meetings', component: MeetingPageComponent},
+      { path: 'meetings/:id', component: DetailComponent}
     ],
     canActivate: [AuthenticationGuard]
   },

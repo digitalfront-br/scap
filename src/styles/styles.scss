@@ -58,11 +58,27 @@ html {
 }
 .uk-card-basic {
   @include hook-card-default();
-  // border-radius: 3px ;
+  padding: 0;
+  border: 1px solid rgba(37, 67, 90, 0.09);
+  border-radius: 3px ;
+  .uk-panel {
+    padding: 5px;
+  }
+  .uk-card-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+.titulo-sessao {
+  font-weight: bold;
+  font-size: 1rem;
 }
 .uk-card-list {
   @include hook-card-default();
   // border-radius: 3px ;
+}
+ul.uk-slider-items.uk-grid:first-child {
+  margin-left: 0
 }
 .card-menu {
   @include hook-card-default();

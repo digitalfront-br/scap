@@ -1,2 +1,9 @@
-<df-header-light></df-header-light>
-<df-card-list [data]="meetings?.meetings"></df-card-list>
+<ng-container *ngIf="meetings; else blockElse">
+  <df-header-light></df-header-light>
+  <df-card-list [data]="meetings?.meetings" prefixUrl="/meetings"></df-card-list>
+</ng-container>
+<ng-template #blockElse>
+  <div class="uk-height-viewport uk-width-1-1 uk-flex uk-flex-middle uk-flex-center" #blockElse>
+    <div uk-spinner></div>
+  </div>
+</ng-template>

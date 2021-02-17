@@ -2,13 +2,16 @@
     <ng-container *ngIf="data">
         <div *ngFor="let item of data" class="uk-card uk-card-list">
             <div>
-                <h4 class="uk-margin-remove uk-h5">{{ item.title }}</h4>
+                <h4 *ngIf="prefixUrl; else noLink" [routerLink]="[prefixUrl,item.id]" class="uk-margin-remove uk-h5">{{ item.title }}</h4>
+                <ng-template #noLink>
+                    <h4 class="uk-margin-remove uk-h5">{{ item.title }}</h4>
+                </ng-template>
                 <span *ngIf="item.subtitulo" class="uk-text-muted uk-text-small">{{ item.subtitulo }}</span>
-                <span *ngIf="item.questions" class="uk-text-muted uk-text-small">{{ item.questions <= 1 ? (item.questions + ' pergunta') : (item.questions + ' perguntas') }}</span>
+                <span *ngIf="item.questions" class="uk-text-muted uk-text-small">{{ item.questions <= 1 ? (item.questions + ' Questionamento') : (item.questions + ' Questionamentos') }}</span>
                 <span *ngIf="item.description" class="uk-text-muted uk-text-small">{{ item.description }}</span>
             </div>
         </div>
-        <div *ngIf="linkMore" class="uk-card uk-card-list" [routerLink]="linkMore">
+        <div *ngIf="linkMore" class="uk-card uk-card-list" [routerLink]="[linkMore]">
             <p class="uk-margin-remove uk-text-center uk-text-bold uk-text-small">Ver Todos</p>
         </div>
     </ng-container>

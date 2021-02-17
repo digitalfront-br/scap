@@ -1,3 +1,12 @@
+<ng-container *ngIf="categories; else blockElse">
 <df-header-light></df-header-light>
-<df-card-grid [data]="categories" linkMore="/categories"></df-card-grid>
-<df-card-list [data]="questions" linkMore="/questions"></df-card-list>
+  <h3 class="uk-margin-small uk-margin-small-left titulo-sessao">Categorias</h3>
+  <df-card-grid [data]="categories" prefixUrl="/categories" linkMore="/categories"></df-card-grid>
+  <h3 class="uk-margin-small uk-margin-small-left titulo-sessao">PPS's</h3>
+  <df-card-list [data]="questions" linkMore="/questions" prefixUrl="/questions"></df-card-list>
+</ng-container>
+<ng-template #blockElse>
+  <div class="uk-height-viewport uk-width-1-1 uk-flex uk-flex-middle uk-flex-center" #blockElse>
+    <div uk-spinner></div>
+  </div>
+</ng-template>

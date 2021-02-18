@@ -1,6 +1,6 @@
 <ng-container *ngIf="questions; else blockElse">
   <df-header-light></df-header-light>
-  <df-card-list [data]="questions" prefixUrl="/questions" asset="1" ></df-card-list>
+  <df-card-list [data]="questions" [edit]="mode" prefixUrl="/questions" asset="1" ></df-card-list>
   </ng-container>
   <ng-template #blockElse>
     <div class="uk-height-viewport uk-width-1-1 uk-flex uk-flex-middle uk-flex-center" #blockElse>

@@ -11,6 +11,8 @@ export class CardListComponent implements OnInit {
   @Input() data: Array<any>;
   @Input() linkMore: string;
   @Input() prefixUrl: string;
+  @Input() actions: Boolean;
+  @Input() edit: Boolean;
   
   constructor() { }
 

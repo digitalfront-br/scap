@@ -2,13 +2,32 @@
     <ng-container *ngIf="data">
         <div *ngFor="let item of data" class="uk-card uk-card-list">
             <div>
-                <h4 *ngIf="prefixUrl; else noLink" [routerLink]="[prefixUrl,item.id]" class="uk-margin-remove uk-h5">{{ item.title }}</h4>
-                <ng-template #noLink>
-                    <h4 class="uk-margin-remove uk-h5">{{ item.title }}</h4>
-                </ng-template>
+                <div class="uk-flex uk-flex-between uk-flex-bottom">
+                    <div class="uk-flex uk-flex-middle">
+                        <div *ngIf="edit" class="uk-margin-small-right" style="max-width: 30px; min-width: 30px">
+                            <input style="width: 20px; height: 20px; border-radius: 3px"  class="uk-checkbox" type="checkbox">
+                        </div>
+                        <h4 *ngIf="prefixUrl || (prefixUrl && !edit) ; else noLink" [routerLink]="[prefixUrl,item.id]" class="uk-margin-remove uk-h5">{{ item.title }}</h4>
+                        <ng-template #noLink>
+                            <h4 class="uk-margin-remove uk-h5">{{ item.title }}</h4>
+                        </ng-template>
+                    </div>
+                    <div *ngIf="actions" class=" action-links">
+                        <div>
+                            <a href="#" class="uk-text-muted" uk-icon="icon: more-vertical; ratio: 0.9"></a>
+                          </div>
+                          <div uk-dropdown="mode: click; pos: bottom-right" class="uk-position-absolute uk-padding-small uk-border-rounded">
+                            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                              <li class="uk-text-small"><a href="#" ><span class="uk-margin-small-right" uk-icon="icon: pencil"></span>Editar</a></li>
+                              <li class="uk-text-small"><a href="#"   class="uk-text-danger"><span class="uk-margin-small-right" uk-icon="icon: trash"></span>Excluir</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                </div>
                 <span *ngIf="item.subtitulo" class="uk-text-muted uk-text-small">{{ item.subtitulo }}</span>
                 <span *ngIf="item.questions" class="uk-text-muted uk-text-small">{{ item.questions <= 1 ? (item.questions + ' Questionamento') : (item.questions + ' Questionamentos') }}</span>
                 <span *ngIf="item.description" class="uk-text-muted uk-text-small">{{ item.description }}</span>
+
             </div>
         </div>
         <div *ngIf="linkMore" class="uk-card uk-card-list" [routerLink]="[linkMore]">

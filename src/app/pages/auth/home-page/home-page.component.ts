@@ -15,11 +15,20 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.loadCategories();
     this.loadQuestions();
+    this.checkStatus();
   }
 
   public categories;
   public questions;
+  public mode;
 
+  checkStatus() {
+    if(window.localStorage.getItem('editMode')) {
+      this.mode = true;
+    } else {
+      this.mode = false;
+    }
+  }
   loadCategories() {
     return this.httpCategory.getCategories(5).subscribe(
       success => {

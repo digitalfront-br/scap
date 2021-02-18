@@ -12,5 +12,14 @@ export class GuardLayoutComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public mode;
+
+  watchMode() {
+    if(window.localStorage.getItem('editMode')) {
+      this.mode = true;
+    } else {
+      this.mode = false;
+    }
+  }
 
 }

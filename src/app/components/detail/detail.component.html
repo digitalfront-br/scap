@@ -2,7 +2,7 @@
   <df-header-dark></df-header-dark>
   <div>
     <div class="uk-background-cover banner-section uk-panel uk-flex uk-flex-center uk-flex-middle"
-      style="background-image: url('{{item.img }}');">
+      style="background-image: url('assets/image-medium.jpg')">
       <div class="uk-overlay-primary uk-position-cover"></div>
       <div class="uk-overlay uk-position-bottom  uk-padding-remove">
         <div class="uk-container">
@@ -16,7 +16,7 @@
   </div>
   <div class="uk-container uk-margin-top">
     <ng-container *ngIf="item.questions"> 
-      <df-card-list [data]="item.questions"  prefixUrl="/questions"></df-card-list>
+      <df-card-list [data]="item.questions" [edit]="mode"  prefixUrl="/questions"></df-card-list>
     </ng-container>
   </div>
 </ng-container>

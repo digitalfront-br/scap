@@ -20,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderLightComponent } from './components/header/header-light/header-light.component';
 import { HeaderDarkComponent } from './components/header/header-dark/header-dark.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { MakeSessionComponent } from './components/make-session/make-session.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +41,15 @@ import { DetailComponent } from './components/detail/detail.component';
     FooterComponent,
     HeaderLightComponent,
     HeaderDarkComponent,
-    DetailComponent
+    DetailComponent,
+    MakeSessionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

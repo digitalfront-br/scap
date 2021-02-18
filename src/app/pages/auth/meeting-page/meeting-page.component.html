@@ -1,6 +1,29 @@
 <ng-container *ngIf="meetings; else blockElse">
   <df-header-light></df-header-light>
-  <df-card-list [data]="meetings?.meetings" prefixUrl="/meetings"></df-card-list>
+  <df-card-list [data]="meetings?.meetings" prefixUrl="/meetings" actions="1"></df-card-list>
+  <div style="z-index: 9;" class=" uk-position-bottom uk-margin-xlarge-bottom uk-padding-small uk-flex uk-flex-between">
+    <span></span>
+    <a class="uk-button uk-button-primary uk-border-rounded" (click)="endMode()">Concluir</a>
+    <a class="uk-button uk-button-primary uk-border-rounded" href="#modal-center" uk-toggle >Criar Sessão</a>
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
+  
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+  
+          <p>Digite um nome para identificar sua listagem</p>
+          <form>
+            <div class="uk-margin uk-flex">
+              <div class="uk-inline uk-width-1-1">
+                  <span class="uk-form-icon" uk-icon="icon: list"></span>
+                  <input class="uk-input  uk-border-rounded" placeholder="Titulo da listagem" type="text">
+              </div>
+              <button (click)="editableMode()" class="uk-button uk-button-primary uk-border-rounded">ok</button>
+            </div>
+          </form>
+  
+      </div>
+  </div>
+  </div>  
 </ng-container>
 <ng-template #blockElse>
   <div class="uk-height-viewport uk-width-1-1 uk-flex uk-flex-middle uk-flex-center" #blockElse>

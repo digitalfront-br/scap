@@ -4,7 +4,10 @@
             <li *ngFor="let item of data" >
                 <div class="uk-card uk-card-basic">
                     <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/photo.jpg" alt="">
+                        <img *ngIf="item.image; else noImage" [src]="item.image" alt="">
+                        <ng-template #noImage>
+                            <img src="assets/image-medium.jpg" alt="">
+                        </ng-template>
                     </div>
                     <div class="uk-padding-xsmall uk-panel">
                         <div class="uk-text-truncate">

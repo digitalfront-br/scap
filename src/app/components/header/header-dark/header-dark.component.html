@@ -8,8 +8,17 @@
     </div>
     <div class="uk-navbar-right">
       <div class="uk-navbar-item uk-padding-remove">
-        <div>
-          <i data-feather="user"></i>
+        <div class="uk-text-primary">
+          <div>
+            <i data-feather="user"></i>
+          </div>
+          <div uk-dropdown="mode: click; pos: bottom-right" class="uk-position-absolute uk-padding-small uk-border-rounded uk-background-secondary">
+            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+              <li class="uk-nav-header uk-text-small">Olá {{ user.name }}</li>
+              <li class="uk-text-small"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: user"></span>Perfil</a></li>
+              <li class="uk-text-small"><a href="#" (click)="checkout()"  class="uk-text-danger"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span>Sair</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
